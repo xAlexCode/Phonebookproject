@@ -41,12 +41,12 @@ button {
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
-  background: white;
+  background: rgb(214, 213, 213);
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #f0f0f0;
+  background-color: #878787;
 }
 
 button[aria-pressed='true'] {
