@@ -13,17 +13,17 @@ const initialContacts: Contact[] = [
 
 const PhoneBook = () => {
     const [contacts, setContacts] = useState(initialContacts)
-    const [filter, setFilter] = useState('All')
+    const [filter, setFilter] = useState('All') // initierar filter funktionen använder statet all från början
         
-    const deleteContact = (id: number) => {
-        setContacts(contacts.filter(contact => contact.id !== id))
+    const deleteContact = (id: number) => { // Tar bort en kontakt med det angivna id:t
+        setContacts(contacts.filter(contact => contact.id !== id)) // 
     }
 
     console.log(contacts)
 
-    let filteredContacts = contacts;
+    let filteredContacts = contacts; // Pekar mot originalkontakterna
     if (filter === "Personal") {
-        filteredContacts = contacts.filter(contact => contact.type === "personal");
+        filteredContacts = contacts.filter(contact => contact.type === "personal"); // Om personal filtret är aktiverat visas endast dem kontakter med den typen.
     } 
     
     if (filter === "Business") {
@@ -33,12 +33,14 @@ const PhoneBook = () => {
     if (filter === "Favorites") {
         filteredContacts = contacts.filter(contact => contact.isFavorite);
     }
+
     return ( 
         <div>
-            <button onClick={() => setFilter("All")}> All </button>
+            <button onClick={() => setFilter("All")}> All </button> 
             <button onClick={() => setFilter("Personal")}> Personal</button>
             <button onClick={() => setFilter("Business")}> Business</button>
             <button onClick={() => setFilter("Favorites")}>Favorites</button>
+           
             <ul className='ul'>
                 {filteredContacts.map(contact => (
                 <ContactProfile 
